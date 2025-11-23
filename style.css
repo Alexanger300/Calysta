@@ -1,40 +1,96 @@
+@import url("fonts.css");
+
 html, body {
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* supprime toute bande blanche à droite */
+}
+
+/* Offset pour ancres (compense le header sticky) */
+:root {
+  --header-offset: 105px; /* ajustez selon la hauteur réelle de .items-container */
+}
+
+/* Appliquer un décalage de scroll aux éléments ciblés par des ancres */
+h1, h2, h3, h4, [id] {
+  scroll-margin-top: var(--header-offset);
 }
 
 li {
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
   list-style-type: none; /* Supprime les puces des listes */
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation: placer la liste à droite et les éléments côte-à-côte */
+.main-nav {
+  margin-left: auto; /* pousse la nav vers la droite */
+}
+.nav-list {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+.nav-list li {
+  margin: 0;
+}
+.nav-list a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  padding: 6px 8px;
 }
 h1 {
-  border: 5px solid rgb(0, 248, 70);
-  font-size: 50px;
-  margin-bottom: 75px;
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
+  font-size: 20px;
   justify-content: center;
   text-align: center;
 }
-h2 {
-  border: #3498db 5px solid;
-  font-size: 40px;
+.logo {
   margin-top: 0px;
   margin-right: auto;
+  width: 100px;
+  height: auto;
+  cursor: pointer;
 }
 .title {
-  font-size: 20px;
-  margin-top: 30px;
-  margin-left: 20px;
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
+  background-color: violet;
+  padding: 5px;
+
 }
-.items-container {
-  font-size: 40px;
-  border: 5px solid black;
+
+.navbar { 
+  font-size: 10px;
   display: flex;
-  justify-content: right;
-  gap: 10px; /* espace entre les éléments */
-  margin-top: -177px;
-  position:fixed;
-  right: 0;
-  left:0;
+  justify-content: flex-start;
+  gap: 3px; /* espace entre les éléments */
+  position:sticky;
+  top:0;
+  background: rgba(255, 255, 255, 1);
+  z-index: 10;
+  /* Assurer une largeur complète et alignement vertical pour le sticky */
+  width: 100%;
+  align-items: center;
+}
+
+.items-container {
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-end;
+  position:sticky;
+  top:0;
+  background: rgba(255, 255, 255, 1);
+  z-index: 10;
+  /* Assurer une largeur complète et alignement vertical pour le sticky */
+  width: 100%;
+  align-items: center;
+  gap: 50px;
 }
 
 .section-2 {
@@ -54,7 +110,7 @@ h3 {
 .pack-section {
   display: flex;
   background: #02ddfffe;
-  height: 80vh; /* Hauteur de la section */
+  height: 10%; /* Hauteur de la section */
   flex-direction: row;
   width: auto;
   gap: 20px; /* espace entre les éléments */
@@ -80,7 +136,9 @@ h4 {
   font-size: 30px;
   display: flex;
   margin-top: 390px;
-  overflow: hidden;
+  /* L'overflow sur un ancêtre empêche le comportement "sticky".
+     On met visible pour permettre à .items-container de rester sticky. */
+  overflow: visible;
   border:2px solid purple;
 }
 
