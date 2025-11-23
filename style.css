@@ -1,0 +1,93 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* supprime toute bande blanche à droite */
+}
+
+li {
+  list-style-type: none; /* Supprime les puces des listes */
+}
+h1 {
+  border: 5px solid rgb(0, 248, 70);
+  font-size: 50px;
+  margin-bottom: 75px;
+  justify-content: center;
+  text-align: center;
+}
+h2 {
+  border: #3498db 5px solid;
+  font-size: 40px;
+  margin-top: 0px;
+  margin-right: auto;
+}
+.title {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.items-container {
+  font-size: 40px;
+  border: 5px solid black;
+  display: flex;
+  justify-content: right;
+  gap: 10px; /* espace entre les éléments */
+  margin-top: -177px;
+  position:fixed;
+  right: 0;
+  left:0;
+}
+
+.section-2 {
+  background: #02ddfffe;
+  font-size: 50px;
+  height: 100vh; /* Hauteur de la section */
+  width: 100%;
+}
+
+h3 {
+  border: red 5px solid;
+  font-size: 40px;
+  margin-top: 50px;
+  margin-left: 20px;
+  text-align: center;
+}
+.pack-section {
+  display: flex;
+  background: #02ddfffe;
+  height: 80vh; /* Hauteur de la section */
+  flex-direction: row;
+  width: auto;
+  gap: 20px; /* espace entre les éléments */
+  
+}
+h4 {
+  border: blue  5px solid;
+  font-size: 50px;
+  text-align: center;
+  word-wrap: break-word; /* ou */
+  overflow-wrap: break-word;
+}
+
+.section-3 {
+  background: #000000fe;
+  font-size: 50px;
+  height: 20vh; /* Hauteur de la section */
+  width: 100%;
+}
+
+.pack-description {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 30px;
+  display: flex;
+  margin-top: 390px;
+  overflow: hidden;
+  border:2px solid purple;
+}
+
+.image-text {
+  display: flex;
+  flex-direction: column;
+  border: green 5px solid;
+  font-size: 30px;
+  text-align: center;
+}

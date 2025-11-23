@@ -1,0 +1,5 @@
+{
+  "fiveServer.config.proxy": "http://localhost/Ydays",
+  "fiveServer.config.browser": "chrome",
+  "fiveServer.config.reload": true
+}
