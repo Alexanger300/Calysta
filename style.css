@@ -22,8 +22,11 @@ li {
   font-size: 20px;
   margin: 0;
   padding: 0;
+  
 }
-
+a {
+  text-decoration: none;
+}
 /* Navigation: placer la liste à droite et les éléments côte-à-côte */
 .main-nav {
   margin-left: auto; /* pousse la nav vers la droite */
@@ -51,6 +54,8 @@ h1 {
   justify-content: center;
   text-align: center;
 }
+
+
 .logo {
   margin-top: 0px;
   margin-right: auto;
@@ -60,7 +65,7 @@ h1 {
 }
 .title {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
-  background-color: violet;
+  background-color: #C58BA6;
   padding: 5px;
 
 }
@@ -94,35 +99,61 @@ h1 {
 }
 
 .section-2 {
-  background: #02ddfffe;
+  background: #1B1464;
   font-size: 50px;
   height: 100vh; /* Hauteur de la section */
   width: 100%;
+  text-align: center;
 }
 
 h3 {
-  border: red 5px solid;
   font-size: 40px;
   margin-top: 50px;
   margin-left: 20px;
   text-align: center;
 }
-.pack-section {
+.pack-section{
+  scroll-snap-align: start;
   display: flex;
-  background: #02ddfffe;
-  height: 10%; /* Hauteur de la section */
-  flex-direction: row;
-  width: auto;
-  gap: 20px; /* espace entre les éléments */
-  
+  overflow-x: scroll;
+  gap:1em;
+  height: 30vw;
+  width:  70vw;
+  margin-left: auto;
+  scroll-behavior: smooth;
+
 }
+.pack-section::scrollbar-button(right){
+  content:"Right";
+
+}
+
 h4 {
+  flex:1;
   border: blue  5px solid;
-  font-size: 50px;
+  width: 80px 140px;
   text-align: center;
-  word-wrap: break-word; /* ou */
-  overflow-wrap: break-word;
+  justify-content: center;
+  background: url(./images/Background.png);
 }
+
+.pack-description{
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  /* L'overflow sur un ancêtre empêche le comportement "sticky".
+     On met visible pour permettre à .items-container de rester sticky. */
+  overflow: visible;
+  border:2px solid rgb(99, 98, 131), 21, 483;
+  width: 30vw;
+}
+
+
+
+
+
+
+
 
 .section-3 {
   background: #000000fe;
@@ -130,22 +161,40 @@ h4 {
   height: 20vh; /* Hauteur de la section */
   width: 100%;
 }
-
-.pack-description {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 30px;
-  display: flex;
-  margin-top: 390px;
-  /* L'overflow sur un ancêtre empêche le comportement "sticky".
-     On met visible pour permettre à .items-container de rester sticky. */
-  overflow: visible;
-  border:2px solid purple;
-}
-
 .image-text {
   display: flex;
   flex-direction: column;
   border: green 5px solid;
   font-size: 30px;
   text-align: center;
+}
+.white-section {
+  background: #FFFFFF;
+  color: black;
+  font-size: 'NationalPark', sans-serif; font-weight: 700;
+  height: 40vh;
+  width: 50%;
+}
+.group {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 5em;
+}
+.photo-member {
+  flex: 0 0 5em;
+  height: 5em;
+  padding: 1em;
+  background: #b95454;
+  font-size: 3rem;
+  border-radius: 2em;
+  text-align: center;
+  align-content: center;
+}
+.name-member {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 0.5em;
+  border: #1B1464 2px solid;
 }
