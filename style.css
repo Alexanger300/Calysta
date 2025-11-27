@@ -107,8 +107,9 @@ h1 {
 }
 
 h3 {
-  font-size: 40px;
-  margin-top: 50px;
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
+  font-size: 50px;
+  margin-top: 20px;
   margin-left: 20px;
   text-align: center;
 }
@@ -149,12 +150,6 @@ h4 {
 }
 
 
-
-
-
-
-
-
 .section-3 {
   background: #000000fe;
   font-size: 50px;
@@ -169,11 +164,15 @@ h4 {
   text-align: center;
 }
 .white-section {
+  width: 100%;
+  margin-top: 20px;
+  border: black 2px solid;
+  text-align: center;
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
   background: #FFFFFF;
   color: black;
-  font-size: 'NationalPark', sans-serif; font-weight: 700;
-  height: 40vh;
-  width: 50%;
+  font-size: 20px;
+  height: 26vw;
 }
 .group {
   display: flex;
@@ -197,4 +196,14 @@ h4 {
   text-align: center;
   margin-top: 0.5em;
   border: #1B1464 2px solid;
+}
+
+
+.slogan-section {
+  color: black;
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
+  width: 100%;
+  text-align: center;
+  font-size: 2vh;
+  font-style: italic;
 }
