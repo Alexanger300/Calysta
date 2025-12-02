@@ -4,6 +4,7 @@ html, body {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
   margin: 0;
   padding: 0;
+  font-size: 16px; /* base pour rem */
 }
 
 /* Offset pour ancres (compense le header sticky) */
@@ -50,7 +51,8 @@ a {
 }
 h1 {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
-  font-size: 20px;
+  /* responsive font-size: min/max with viewport scaling */
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
   justify-content: center;
   text-align: center;
 }
@@ -108,18 +110,19 @@ h1 {
 
 h3 {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
-  font-size: 50px;
+  /* responsive heading that scales between mobile and desktop */
+  font-size: clamp(1.5rem, 4.5vw, 3.125rem); /* 24px - fluid - 50px */
   margin: 10px 0 0; /* top 10px, no left/right margin, bottom 0 */
   text-align: center;
 }
 .pack-section{
   scroll-snap-align: start;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   gap:1em;
   height: 30vw;
-  width:  70vw;
-  margin-left: auto;
+  width: min(90vw, 1200px);
+  margin: 0 auto; /* centré sur grand écran, fluide sur mobile */
   scroll-behavior: smooth;
 
 }
@@ -204,7 +207,8 @@ h4 {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
   width: 100%;
   text-align: center;
-  font-size: 2vh;
+  /* responsive slogan size */
+  font-size: clamp(0.9rem, 2.2vw, 1.25rem);
   margin-top: 0; /* placer la section juste sous le h3 */
   padding-top: 0.25rem; /* petit espacement visuel */
   font-style: italic;
@@ -358,6 +362,6 @@ h4 {
     border-radius: 1.75em;
   }
   .slogan-section {
-    font-size: 10vw;
+    font-size: 2vw;
   }
 }
