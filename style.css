@@ -109,8 +109,7 @@ h1 {
 h3 {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
   font-size: 50px;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin: 10px 0 0; /* top 10px, no left/right margin, bottom 0 */
   text-align: center;
 }
 .pack-section{
@@ -178,8 +177,9 @@ h4 {
   display: flex;
   align-items:center;
   justify-content: center;
-  gap: 2em;
+  gap: 1em;
   margin-top: 5em;
+  margin-left: 4em;
 }
 .photo-member {
   flex: 0 0 5em;
@@ -205,6 +205,8 @@ h4 {
   width: 100%;
   text-align: center;
   font-size: 2vh;
+  margin-top: 0; /* placer la section juste sous le h3 */
+  padding-top: 0.25rem; /* petit espacement visuel */
   font-style: italic;
 }
 /* Responsive - Mobile rules
@@ -222,7 +224,7 @@ h4 {
   }
   h3 {
     font-size: 32px;
-    margin-top: 12px;
+    margin-top: 10px; 
   }
   h4 {
     font-size: 20px;
@@ -265,9 +267,9 @@ h4 {
 }
 .learn-more {
   text-align: center;
-  border: olive 2px solid;
+  border: rgb(0, 0, 0) 10px solid;
   font-family: 'NationalPark', sans-serif; font-weight: 700;
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
   margin-top: 10px;
   display: inline-block;
@@ -276,9 +278,18 @@ h4 {
   color: #000000;
   border-radius: 100px;
 }
+.learn-more:hover {
+  background-color: #1B1464;
+  color: #FFFFFF;
+  transition: background-color 0.3s, color 0.3s;
+}
 
 .learn-more[id="team-member"] {
-  margin-bottom: 20px;
+  top: 50%;
+  position: relative;
+  left:50%;
+  transform: translate(-70%, 25%);
+
 }
 @media (max-width: 480px) {
   :root {
@@ -347,6 +358,6 @@ h4 {
     border-radius: 1.75em;
   }
   .slogan-section {
-    font-size: 3vw;
+    font-size: 10vw;
   }
 }
