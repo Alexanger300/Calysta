@@ -13,12 +13,18 @@
     </div> 
     <div class="navbar">
             <a href="home_page.html"><img src="./images/logo2.svg" alt="logo" class="logo"></a>
-            <div class="items-container">
+            <!-- Bouton hamburger pour mobile -->
+            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Ouvrir le menu">
+                <span class="hamburger" aria-hidden="true"></span>
+            </button>
+            <div class="items-container" id="primary-navigation">
+            <ul class="nav-list">
             <li><a href="#histoire">Qui somme-nous</a></li>
             <li><a href="#pack">Pack</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="/inscription.php">Inscription</a></li>
+            </ul>
         </div>
     </div>
 </div>
