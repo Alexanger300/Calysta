@@ -1,5 +1,10 @@
 @import url("fonts.css");
 
+/* Box-sizing global pour éviter les débordements causés par padding/border */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
   margin: 0;
@@ -64,6 +69,12 @@ h1 {
   width: 100px;
   height: auto;
   cursor: pointer;
+}
+
+/* Images ne dépassent jamais leur conteneur */
+img, .logo {
+  max-width: 100%;
+  height: auto;
 }
 .title {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
@@ -263,6 +274,22 @@ h4 {
   }
   .logo {
     width: 80px;
+  }
+  /* Fix overflow: make the mobile menu align to right 0 and fit within viewport */
+  .items-container {
+    right: 0;
+    width: calc(100% - 1rem);
+    max-width: 360px;
+  }
+  /* Ensure pack-section doesn't create horizontal scrolling */
+  .pack-section {
+    width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Remove big left margin on groups for mobile */
+  .group {
+    margin-left: 0;
   }
   /* Afficher le bouton et cacher le menu sur petit écran */
   .nav-toggle {
