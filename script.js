@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.setAttribute('aria-expanded', String(!expanded));
     nav.classList.toggle('open');
 
-    // optional: change aria-label for clarity
+    // optionnel : changer l'aria-label pour plus de clarté
     btn.setAttribute('aria-label', expanded ? 'Ouvrir le menu' : 'Fermer le menu');
   });
 
-  // Close menu when clicking outside (mobile)
+  // Ferme le menu lorsqu'on clique à l'extérieur (mobile)
   document.addEventListener('click', function (e) {
     if (!nav.classList.contains('open')) return;
     if (btn.contains(e.target) || nav.contains(e.target)) return;

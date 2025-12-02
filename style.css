@@ -56,7 +56,7 @@ a {
 }
 h1 {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
-  /* responsive font-size: min/max with viewport scaling */
+  /* taille de police responsive : min/max avec mise à l'échelle selon la fenêtre */
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   justify-content: center;
   text-align: center;
@@ -149,9 +149,9 @@ img, .logo {
 
 h3 {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
-  /* responsive heading that scales between mobile and desktop */
+  /* titre responsive qui s'adapte entre mobile et desktop */
   font-size: clamp(1.5rem, 4.5vw, 3.125rem); /* 24px - fluid - 50px */
-  margin: 10px 0 0; /* top 10px, no left/right margin, bottom 0 */
+  margin: 10px 0 0; /* haut 10px, pas de marge gauche/droite, bas 0 */
   text-align: center;
 }
 .pack-section{
@@ -246,15 +246,15 @@ h4 {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
   width: 100%;
   text-align: center;
-  /* responsive slogan size */
+  /* taille responsive du slogan */
   font-size: clamp(0.9rem, 2.2vw, 1.25rem);
   margin-top: 0; /* placer la section juste sous le h3 */
   padding-top: 0.25rem; /* petit espacement visuel */
   font-style: italic;
 }
-/* Responsive - Mobile rules
-   Tablette <= 768px
-   Téléphone <= 480px */
+/* Responsive - Règles pour mobile
+  Tablette <= 768px
+  Téléphone <= 480px */
 @media (max-width: 768px) {
   :root {
     --header-offset: 90px;
@@ -275,7 +275,7 @@ h4 {
   .logo {
     width: 80px;
   }
-  /* Fix overflow: make the mobile menu align to right 0 and fit within viewport */
+  /* Correction du débordement : aligner le menu mobile à droite et l'ajuster à la fenêtre */
   .items-container {
     right: 0;
     width: calc(100% - 1rem);
@@ -287,7 +287,7 @@ h4 {
     margin-left: auto;
     margin-right: auto;
   }
-  /* Remove big left margin on groups for mobile */
+  /* Supprimer la grande marge gauche des groupes sur mobile */
   .group {
     margin-left: 0;
   }
@@ -409,7 +409,7 @@ h4 {
     padding: 6px 12px;
     position: absolute;
     top: 100%;
-    right: 0; /* align with viewport edge */
+    right: 0; /* aligné au bord de la fenêtre */
     left: auto;
     background: #fff;
     width: calc(100% - 1rem);
