@@ -207,7 +207,7 @@ h4 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   text-align: center;
   margin: 0 0 1.5rem 0;
-  color: #1B1464;
+  color: #fafafa;
 }
 
 .pack-description {
@@ -291,6 +291,7 @@ h4 {
   border-radius: 2em;
   text-align: center;
   align-content: center;
+  border-radius: 50px;
 }
 .name-member {
   font-size: 1.5rem;
@@ -310,6 +311,34 @@ h4 {
   margin-top: 0; /* placer la section juste sous le h3 */
   padding-top: 0.25rem; /* petit espacement visuel */
   font-style: italic;
+}
+
+.learn-more {
+  margin-left:1em;
+  text-align: center;
+  border: rgb(0, 0, 0) 10px solid;
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
+  font-size: 20px; 
+  text-align: center;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #1B1464;
+  color: #000000;
+  border-radius: 10px;
+}
+.learn-more:hover {
+  background-color: #1B1464;
+  color: #FFFFFF;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.learn-more[id="team-member"], .learn-more[id="pack-section"] {
+  top: 50%;
+  position: relative;
+  left:50%;
+  transform: translate(-60%, 0%);
+
 }
 /* Responsive - Règles pour mobile
   Tablette <= 768px
@@ -348,7 +377,7 @@ h4 {
   }
   .pack-section {
     margin-left: 0;
-    gap: 0;
+    gap: 10px;
   }
   .pack-item {
     min-width: 100%;
@@ -422,38 +451,19 @@ h4 {
     margin-top: 3em;
   }
   .photo-member {
+    /* mobile: rendre carré, centré et avec bordure */
     flex: 0 0 5em;
+    width: 5em;
     height: 5em;
-    padding: 1em;
-    font-size: 3rem;
-    border-radius: 2em;
+    padding: 0.4em;
+    font-size: 1.6rem;
+    border-radius: 8px;
+    border: 2px solid #1B1464;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
-}
-.learn-more {
-  text-align: center;
-  border: rgb(0, 0, 0) 10px solid;
-  font-family: 'NationalPark', sans-serif; font-weight: 700;
-  font-size: 25px;
-  text-align: center;
-  margin-top: 10px;
-  display: inline-block;
-  padding: 10px 20px;
-  border: 2px solid #1B1464;
-  color: #000000;
-  border-radius: 100px;
-}
-.learn-more:hover {
-  background-color: #1B1464;
-  color: #FFFFFF;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.learn-more[id="team-member"] {
-  top: 50%;
-  position: relative;
-  left:50%;
-  transform: translate(-70%, 25%);
-
 }
 @media (max-width: 480px) {
   :root {
@@ -539,17 +549,28 @@ h4 {
   html, body { overflow-x: hidden; }
     flex-direction: column;
     gap: 1em;
-    margin-top: 2em;
+    margin-top: 1em;
     align-items: center;
   }
   .photo-member {
-    flex: 0 0 5em;
-    height: 5em;
-    padding: 1em;
-    font-size: 3rem;
-    border-radius: 2em;
+    /* petit écran : carré un peu plus petit, bord visible */
+    width: 4em;
+    height: 4em;
+    padding: 0.3em;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    border: 2px solid #1B1464;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
   .slogan-section {
     font-size: 2vw;
+  }
+
+  .learn-more {
+    font-size: 0.8em;
+    padding: 8px 16px;
   }
 }
