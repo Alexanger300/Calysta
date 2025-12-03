@@ -154,35 +154,81 @@ h3 {
   margin: 10px 0 0; /* haut 10px, pas de marge gauche/droite, bas 0 */
   text-align: center;
 }
-.pack-section{
-  scroll-snap-align: end;
+.carousel-container {
+  width: 80%;
+  max-width: 1500px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  overflow: hidden; /* Empêche l'apparition d'espaces vides lors du translate */
+}
+
+.pack-section {
+  margin-left:500px ;
+  gap: 17px;
   display: flex;
-  overflow-x: auto;
-  gap:1em;
-  height: 30vw;
-  width: min(100vw, 1200px);    
-  margin-left: 36%; /* centré sur grand écran, fluide sur mobile */
+  width: 100%;
+  position: relative;
   scroll-behavior: smooth;
-
-}
-h4 {
-  flex:1;
-  border: blue  5px solid;
-  width: 80px 140px;
-  text-align: center;
-  justify-content: center;
-  background: url(./images/Background.png);
+  transition: transform 0.3s ease;
 }
 
-.pack-description{
-  font-family: 'NationalPark', sans-serif; font-weight: 700;
-  font-size: 20px;
+.pack-item {
+  min-width: 100% 80%;
+  flex-shrink: 0;
   display: flex;
-  /* L'overflow sur un ancêtre empêche le comportement "sticky".
-     On met visible pour permettre à .items-container de rester sticky. */
-  overflow: visible;
-  border:2px solid rgb(99, 98, 131), 21, 483;
-  width: 30vw;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: url(./images/Background.png);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+h4 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  color: #1B1464;
+}
+
+.pack-description {
+  font-family: 'NationalPark', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  text-align: center;
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #9ca3af;
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background-color: #1B1464;
+  width: 32px;
+  border-radius: 6px;
 }
 
 
@@ -277,10 +323,11 @@ h4 {
     max-width: 360px;
   }
   /* Ensure pack-section doesn't create horizontal scrolling */
-  .pack-section {
-    width: 95vw;
-    margin-left: auto;
-    margin-right: auto;
+  .carousel-container {
+    padding: 0 0.5rem;
+  }
+  .pack-item {
+    padding: 1.5rem 1rem;
   }
   /* Supprimer la grande marge gauche des groupes sur mobile */
   .group {
@@ -320,13 +367,19 @@ h4 {
   .items-container {
     gap: 30px;
   }
-  .pack-section {
-    height: 45vw;
-    width: 85vw;
-  }
   .pack-description {
-    width: 80vw;
     font-size: 18px;
+    padding: 0.75rem;
+  }
+  .carousel-dots {
+    gap: 0.5rem;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  .dot.active {
+    width: 28px;
   }
   .white-section {
     height: auto;
@@ -422,19 +475,23 @@ h4 {
     flex-direction: 
     column; gap: 0.6rem; 
   }
-  .pack-section {
-    height: 60vw;
-    width: 95vw;
-    gap: 0.6em;
-    margin-left: 0;
-  }
-  .pack-section {
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+  .pack-item {
+    padding: 1rem 0.5rem;
   }
   .pack-description {
-    width: 90vw;
     font-size: 16px;
+    padding: 0.5rem;
+  }
+  .carousel-dots {
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  .dot.active {
+    width: 24px;
   }
   .white-section {
     height: auto;
