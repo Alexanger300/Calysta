@@ -266,7 +266,6 @@ h4 {
 .white-section {
   width: 100%;
   margin-top: 20px;
-  border: black 2px solid;
   text-align: center;
   font-family: 'NationalPark', sans-serif; font-weight: 700;
   background: #FFFFFF;
@@ -458,7 +457,6 @@ h4 {
     padding: 0.4em;
     font-size: 1.6rem;
     border-radius: 8px;
-    border: 2px solid #1B1464;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -554,12 +552,11 @@ h4 {
   }
   .photo-member {
     /* petit écran : carré un peu plus petit, bord visible */
-    width: 4em;
+    width: 6em;
     height: 4em;
     padding: 0.3em;
     font-size: 1.4rem;
     border-radius: 8px;
-    border: 2px solid #1B1464;
     display: flex;
     align-items: center;
     justify-content: center;
