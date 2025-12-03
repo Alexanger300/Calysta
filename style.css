@@ -155,21 +155,16 @@ h3 {
   text-align: center;
 }
 .pack-section{
-  scroll-snap-align: start;
+  scroll-snap-align: end;
   display: flex;
   overflow-x: auto;
   gap:1em;
   height: 30vw;
-  width: min(90vw, 1200px);
-  margin: 0 auto; /* centré sur grand écran, fluide sur mobile */
+  width: min(100vw, 1200px);    
+  margin-left: 36%; /* centré sur grand écran, fluide sur mobile */
   scroll-behavior: smooth;
 
 }
-.pack-section::scrollbar-button(right){
-  content:"Right";
-
-}
-
 h4 {
   flex:1;
   border: blue  5px solid;
