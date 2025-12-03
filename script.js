@@ -21,26 +21,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const carousel = document.getElementById('packCarousel');
   const dots = document.querySelectorAll('.dot');
-  const carouselContainer = carousel ? carousel.closest('.carousel-container') : null;
 
-  if (!carousel || !dots.length || !carouselContainer) return;
+  if (!carousel || !dots.length) return;
 
   let currentIndex = 0;
-  // Trouve un élément de slide et utilise sa largeur réelle (offsetWidth)
-  // afin de respecter la taille des items définie en CSS.
-  let slideEl = carousel.querySelector('.pack-item');
-  let slideWidth = slideEl ? slideEl.offsetWidth : carouselContainer.clientWidth;
 
-  // Met à jour la position en pixels pour que le déplacement corresponde
-  // à la largeur visible du conteneur (évite les pourcentages relatifs
-  // à la largeur du track qui faussent le calcul).
   function updateCarousel(index) {
     currentIndex = index;
-    const shift = index * slideWidth; // utilise la largeur réelle d'un item
-    carousel.style.transform = `translateX(-${shift}px)`;
+    carousel.style.transform = `translateX(-${index * 100}%)`;
 
     dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
+      if (i === index) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
     });
   }
 
@@ -70,15 +65,4 @@ document.addEventListener('DOMContentLoaded', function () {
       updateCarousel(currentIndex - 1);
     }
   }
-
-  // Recalcule la largeur du conteneur au redimensionnement
-  window.addEventListener('resize', () => {
-    // Recalculer la largeur d'une diapositive après redimensionnement
-    slideEl = carousel.querySelector('.pack-item');
-    slideWidth = slideEl ? slideEl.offsetWidth : carouselContainer.clientWidth;
-    updateCarousel(currentIndex);
-  });
-
-  // position initiale
-  updateCarousel(0);
 });
