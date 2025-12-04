@@ -462,6 +462,16 @@ h4 {
     justify-content: center;
     overflow: hidden;
   }
+  .yellow-section {
+    width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
+  background: #E3CB93;
+  color: black;
+  font-size: 20px;
+  height: 26vw;
+  }
 }
 @media (max-width: 480px) {
   :root {
