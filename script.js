@@ -92,4 +92,72 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // position initiale
   updateCarousel(0);
+
+  // --- Modal Inscription (ouvre un popup vide) ---
+  const inscriptionLink = document.getElementById('inscription-link');
+  const modal = document.getElementById('inscription-modal');
+  const modalCloses = modal ? modal.querySelectorAll('.modal-close') : [];
+
+  function openModal() {
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('open');
+    // lock body scroll
+    document.body.style.overflow = 'hidden';
+    if (modalCloses && modalCloses.length) modalCloses[0].focus();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+
+    // If modal is not open, just ensure it's hidden
+    if (!modal.classList.contains('open')) {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (inscriptionLink) inscriptionLink.focus();
+      return;
+    }
+
+    const content = modal.querySelector('.modal-content');
+
+    // Start closing animation by adding a class
+    modal.classList.add('closing');
+
+    // When animation ends, fully hide modal and cleanup
+    if (content) {
+      content.addEventListener('animationend', function handler() {
+        modal.classList.remove('open', 'closing');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (inscriptionLink) inscriptionLink.focus();
+      }, { once: true });
+    } else {
+      // fallback if content missing
+      modal.classList.remove('open', 'closing');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (inscriptionLink) inscriptionLink.focus();
+    }
+  }
+
+  if (inscriptionLink) {
+    inscriptionLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal();
+    });
+  }
+
+  // Attach close handler to every button that should close the modal
+  if (modalCloses && modalCloses.length) {
+    modalCloses.forEach((btn) => btn.addEventListener('click', closeModal));
+  }
+  if (modal) modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal && modal.getAttribute('aria-hidden') === 'false') {
+      closeModal();
+    }
+  });
 });
