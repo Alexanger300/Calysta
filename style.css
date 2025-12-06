@@ -23,7 +23,7 @@ h1, h2, h3, h4, [id] {
   scroll-margin-top: var(--header-offset);
 }
 h3[id="magenta-section"] {
-  background: #C58BA6;
+  scroll-margin-top: calc(var(--header-offset) + 20px);
 }
 li {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
@@ -266,7 +266,9 @@ h4 {
   font-size: 30px;
   text-align: center;
 }
-.white-section {  
+.white-section { 
+  border-radius:10px; 
+  border: black 10px solid;
   width: 100%;
   margin-top: 20px;
   text-align: center;
@@ -276,6 +278,16 @@ h4 {
   font-size: 20px;
   height: 26vw;
 }
+  .yellow-section {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'NationalPark', sans-serif; font-weight: 700;
+  background-color: #E3CB93;
+  color: black;
+  font-size: 50px;
+  height: 26vw;
+  }
 .group {
   display: flex;
   align-items:center;
@@ -283,6 +295,40 @@ h4 {
   gap: 1em;
   margin-top: 5em;
   margin-left: 4em;
+}
+.group-2{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 5em;
+  margin-left: 4em;
+}
+.member-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5em;
+  padding: 1em;
+  border-radius: 8px;
+  background: #f9f9f9;
+  margin: 1em;
+}
+.member-card-reversed {
+  flex-direction: row-reverse;
+}
+.member-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.member-container {
+  border: black 10px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 2em;
 }
 .photo-member {
   flex: 0 0 5em;
@@ -295,14 +341,54 @@ h4 {
   align-content: center;
   border-radius: 50px;
 }
+.photo-member-2 {
+  flex: 0 0 5em;
+  height: 5em;
+  padding: 1em;
+  background: #b95454;
+  font-size: 3rem;
+  border-radius: 2em;
+  text-align: center;
+  align-content: center;
+  border-radius: 50px;
+  margin: 0;
+}
+.photo-member-3 {
+  flex: 0 0 5em;
+  height: 5em;
+  padding: 1em;
+  background: #0056f7;
+  font-size: 3rem;
+  border-radius: 2em;
+  text-align: center;
+  align-content: center;
+  border-radius: 50px;
+  margin: 0;
+}
 .name-member {
   font-size: 1.5rem;
-  text-align: center;
-  margin-top: 0.5em;
+  text-align: left;
+  margin: 0;
+  padding: 0.5em;
   border: #1B1464 2px solid;
+  flex: 1;
+}
+.name-member-2 {
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 0;
+  padding: 0.5em;
+  border: #1B1464 2px solid;
+  flex: 1;
 }
 
-
+.description-member {
+  border: #1B1464 2px solid;
+  font-size: 1rem;
+  text-align: left;
+  padding: 0.5em;
+  margin-top: 3%;
+}
 .slogan-section {
   color: black;
   font-family: 'NationalPark', sans-serif; font-weight: 700;
@@ -329,7 +415,7 @@ h4 {
 .modal.open, .modal[aria-hidden="false"] { display: flex; }
 .modal-content {
   /* Make the modal frame magenta so the pink fills the top and sides */
-  background: #C58BA6;
+  background: url("./images/Background.png");
   border-radius: 12px;
   max-width: 420px; /* petit panneau */
   width: 90%;
@@ -440,6 +526,16 @@ label {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.project-description {
+  background-color: #E3CB93;
+  font-family: 'NationalPark', sans-serif; font-weight: 400;
+  font-size: 1rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  line-height: 1.6;
+  text-align: center;
 }
 /* Responsive - Règles pour mobile
   Tablette <= 768px
@@ -563,16 +659,6 @@ label {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-  }
-  .yellow-section {
-  width: 100%;
-  margin-top: 20px;
-  text-align: center;
-  font-family: 'NationalPark', sans-serif; font-weight: 700;
-  background: #E3CB93;
-  color: black;
-  font-size: 20px;
-  height: 26vw;
   }
 }
 @media (max-width: 480px) {
