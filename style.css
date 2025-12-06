@@ -166,11 +166,11 @@ h3 {
 }
 
 .pack-section {
-  margin-left:20%;
+  margin-left: 220px;
   /* Conteneur de slides : pas de marge décalée, s'étend sur 100% */
-  gap: 100px;
+  gap: 100%;
   display: flex;
-  width: 100%;
+  width: 80%;
   position: relative;
   scroll-behavior: smooth;
   transition: transform 0.3s ease;
@@ -178,7 +178,7 @@ h3 {
 
 .pack-item {
   /* Chaque item occupe toute la largeur visible (1 slide par vue) */
-  min-width: 100%;
+  min-width: 80%;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -285,7 +285,7 @@ h4 {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
   background-color: #E3CB93;
   color: black;
-  font-size: 50px;
+  font-size: 10px;
   height: 26vw;
   }
 .group {
@@ -521,6 +521,7 @@ h4 {
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
+  margin-top: 10px;
 }
 label {
   font-family: 'NationalPark', sans-serif; font-weight: 700;
@@ -536,6 +537,20 @@ label {
   padding: 1rem;
   line-height: 1.6;
   text-align: center;
+}
+input[placeholder] {
+  width: 100%;
+  border: 1px solid #8a8585;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 15px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+}
+.team-section {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 /* Responsive - Règles pour mobile
   Tablette <= 768px
@@ -568,22 +583,26 @@ label {
   }
   /* Ensure pack-section doesn't create horizontal scrolling */
   .carousel-container {
-    padding: 0 0.5rem;
-    overflow: hidden; /* sécurité: masquer toute partie hors-écran */
+    padding: 0 1rem;
+    overflow: hidden;
     max-width: 100%;
+    width: 100%;
   }
   .pack-section {
-    margin-left: 0;
-    gap: 10px;
+    margin-left: 10%;
+    gap: 1rem;
+    width: 80%;
   }
   .pack-item {
-    min-width: 100%;
-    box-sizing: border-box; /* s'assurer que paddings ne cassent pas la largeur */
-    max-width: 100%;
-  }
-  .carousel-dots { width: 100%; box-sizing: border-box; }
-  .pack-item {
+    min-width: calc(100% - 2rem);
+    width: calc(100% - 2rem);
+    max-width: calc(100% - 2rem);
+    box-sizing: border-box;
     padding: 1.5rem 1rem;
+  }
+  .carousel-dots { 
+    width: 100%; 
+    box-sizing: border-box; 
   }
   /* Supprimer la grande marge gauche des groupes sur mobile */
   .group {
@@ -711,14 +730,24 @@ label {
   .nav-list { 
     padding: 0; 
     margin: 0; 
-    flex-direction: 
-    column; gap: 0.6rem; 
+    flex-direction: column; 
+    gap: 0.6rem; 
+  }
+  .carousel-container {
+    padding: 0 0.75rem;
+    width: 100%;
+  }
+  .pack-section {
+    margin-left: 0;
+    gap: 0.75rem;
+    width: 100%;
   }
   .pack-item {
-    padding: 1rem 0.6rem;
-    min-width: 100%;
+    padding: 1rem 0.75rem;
+    min-width: calc(100% - 1.5rem);
+    width: calc(100% - 1.5rem);
+    max-width: calc(100% - 1.5rem);
     box-sizing: border-box;
-    max-width: 100%;
   }
   .pack-description {
     font-size: 16px;
