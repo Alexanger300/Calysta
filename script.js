@@ -160,4 +160,95 @@ document.addEventListener('DOMContentLoaded', function () {
       closeModal();
     }
   });
+
+  // --- Traitement du formulaire d'inscription via AJAX ---
+  const inscriptionForm = document.getElementById('inscription-form');
+  
+  if (inscriptionForm) {
+    inscriptionForm.addEventListener('submit', function (e) {
+      e.preventDefault(); // Empêcher la soumission classique
+
+      // Récupérer les données du formulaire
+      const formData = new FormData(inscriptionForm);
+
+      // Envoyer via AJAX
+      fetch('inscription.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Afficher les résultats dans le modal
+        displayFormResponse(data);
+      })
+      .catch(error => {
+        console.error('Erreur lors de l\'envoi :', error);
+        displayFormResponse({
+          success: false,
+          message: 'Erreur réseau. Veuillez réessayer.',
+          errors: []
+        });
+      });
+    });
+  }
+
+  // Fonction pour afficher la réponse du serveur
+  function displayFormResponse(data) {
+    const modalBody = modal ? modal.querySelector('.modal-body') : null;
+    if (!modalBody) return;
+
+    let html = '';
+
+    if (data.success) {
+      // Message de succès avec popup
+      html = `
+        <div class="response-message success">
+          <div style="text-align: center; padding: 2rem;">
+            <p style="font-size: 3rem; margin: 0;">✓</p>
+            <p style="color: green; font-weight: bold; font-size: 1.3rem; margin: 1rem 0;">Inscription réussie !</p>
+            <p style="color: #666; margin: 0.5rem 0;">Merci de vous être inscrit.</p>
+            <p style="color: #666; margin: 0;">Nous vous contacterons bientôt.</p>
+          </div>
+        </div>
+      `;
+      // Réinitialiser le formulaire
+      if (inscriptionForm) inscriptionForm.reset();
+      
+      // Fermer le modal après 2 secondes
+      setTimeout(() => {
+        closeModal();
+      }, 2000);
+    } else {
+      // Message d'erreur
+      html = `
+        <div class="response-message error">
+          <p style="color: red; font-weight: bold; text-align: center;">${data.message}</p>
+      `;
+      if (data.errors && data.errors.length > 0) {
+        html += '<ul style="color: red; margin-top: 0.5rem;">';
+        data.errors.forEach(err => {
+          html += `<li>${err}</li>`;
+        });
+        html += '</ul>';
+      }
+      html += `
+          <button type="button" class="btn-retry" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #C58BA6; border: none; border-radius: 5px; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Réessayer</button>
+        </div>
+      `;
+
+      // Ajouter l'événement "Réessayer"
+      setTimeout(() => {
+        const retryBtn = modalBody.querySelector('.btn-retry');
+        if (retryBtn) {
+          retryBtn.addEventListener('click', function () {
+            // Recharger le formulaire
+            location.reload();
+          });
+        }
+      }, 100);
+    }
+
+    // Remplacer le contenu du modal-body
+    modalBody.innerHTML = html;
+  }
 });
